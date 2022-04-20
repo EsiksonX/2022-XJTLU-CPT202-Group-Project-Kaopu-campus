@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/me_dw1.css" rel="stylesheet" />
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src="js/mui.min.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">Me</h1>
+		</header>
+		<!-- body -->
+		<!-- home -->
+		<div class="mui-content box-shadow">
+			<div class="home-div">
+				<div class="home-div-top">
+					<div class="home-div-top-l" id="portrait">
+						<img src="images/123.png">
+					</div>
+					<div onclick="creatwebview('http:\/\/kaopu-campus.online\/kaopuUI\/login.php')" class="home-div-top-r">
+						<h4>Log in / Sign up</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 第一行 -->
+		<div class="mui-slider">
+			<!--选项卡标题区-->
+			<div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted first-part">
+			  <a class="mui-control-item" href="#item1">Comment
+			  <span class="mui-badge mui-badge-primary">99+</span>
+			  </a>
+			  <a class="mui-control-item" href="#item2">Like
+			  <span class="mui-badge mui-badge-primary">99+</span>
+			  </a>
+			</div>
+		</div>
+		<!-- 第二行 -->
+		<div class="mui-slider">
+			<!--选项卡标题区-->
+			<div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-low first-part">
+			  <a class="mui-control-item" href="#item1">Following
+			  </a>
+			  <a class="mui-control-item" href="#item2">Follower
+			  </a>
+			</div>
+
+
+		<ul class="mui-table-view second-part">
+			<li class="mui-table-view-cell">Moments
+			<a creatwebview="homepage.html">
+				</a>
+			</li>
+		</ul>
+		<ul class="mui-table-view second-part">
+				<li class="mui-table-view-cell">Favorites</li>
+				<li class="mui-table-view-cell">General</li>
+				<li class="mui-table-view-cell">Help & Feedback</li>
+			</ul>
+		<script type="text/javascript">
+			mui.init();
+			// 调取图片更改头像 从手机相册里上传
+			mui.plusReady(function () {
+			    document.getElementById("portrait").addEventListener("tap", function(){
+					plus.gallery.pick(
+					function(path){
+						var allImgExt = ".jpg|.jpeg|.gif|.png|.bmp"
+						document.getElementById("portrait").innerHTML='<img src="'+path+'" width="100%"/>';
+						
+					},
+					function(e){
+						alert("cancel")
+					},
+					{filter:"image"},
+					);
+				},{ passive: false });
+				
+				
+				
+			});
+			
+			
+		</script>
+		<script>
+		function creatwebview(url) {			var pagestyle = {				top:"0px",				bottom:"0px"			}
+			mui.plusReady(function () {
+			    var item = plus.webview.create(url,url,pagestyle);
+			    plus.webview.show(url);
+			})			// var item = plus.webview.create(url,url,pagestyle);			// plus.webview.show(url);		}
+		</script>
+	 </div>
+	</body>
+
+</html>
