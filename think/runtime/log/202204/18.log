@@ -1,0 +1,30 @@
+[2022-04-18T20:07:13+08:00][sql] CONNECT:[ UseTime:0.004880s ] mysql:host=kaopu-campus.online;port=3306;dbname=campusserver;charset=utf8
+[2022-04-18T20:07:13+08:00][sql] SHOW FULL COLUMNS FROM `likes` [ RunTime:0.005156s ]
+[2022-04-18T20:07:13+08:00][sql] SELECT * FROM `likes` [ RunTime:0.002291s ]
+[2022-04-18T20:41:06+08:00][sql] CONNECT:[ UseTime:0.224162s ] mysql:host=kaopu-campus.online;port=3306;dbname=campusserver;charset=utf8
+[2022-04-18T20:41:06+08:00][sql] SHOW FULL COLUMNS FROM `likes` [ RunTime:0.002944s ]
+[2022-04-18T20:41:06+08:00][sql] SELECT * FROM `likes` [ RunTime:0.001581s ]
+[2022-04-18T21:19:30+08:00][sql] CONNECT:[ UseTime:0.239451s ] mysql:host=kaopu-campus.online;port=3306;dbname=campusserver;charset=utf8
+[2022-04-18T21:19:30+08:00][sql] SHOW FULL COLUMNS FROM `likes` [ RunTime:0.003212s ]
+[2022-04-18T21:19:30+08:00][sql] SELECT * FROM `likes` [ RunTime:0.001910s ]
+[2022-04-18T21:19:42+08:00][sql] CONNECT:[ UseTime:0.011067s ] mysql:host=kaopu-campus.online;port=3306;dbname=campusserver;charset=utf8
+[2022-04-18T21:19:42+08:00][sql] SHOW FULL COLUMNS FROM `store_comment` [ RunTime:0.004008s ]
+[2022-04-18T21:19:42+08:00][sql] SELECT * FROM `store_comment` WHERE  `store_id` = 7 [ RunTime:0.006172s ]
+[2022-04-18T21:33:47+08:00][sql] CONNECT:[ UseTime:0.021586s ] mysql:host=kaopu-campus.online;port=3306;dbname=campusserver;charset=utf8
+[2022-04-18T21:33:47+08:00][sql] SHOW FULL COLUMNS FROM `store_comment` [ RunTime:0.003511s ]
+[2022-04-18T21:33:47+08:00][sql] SELECT * FROM `store_comment` WHERE  `store_id` = 6 [ RunTime:0.007031s ]
+[2022-04-18T21:33:59+08:00][sql] CONNECT:[ UseTime:0.008743s ] mysql:host=kaopu-campus.online;port=3306;dbname=campusserver;charset=utf8
+[2022-04-18T21:33:59+08:00][sql] SHOW FULL COLUMNS FROM `store_comment` [ RunTime:0.003122s ]
+[2022-04-18T21:33:59+08:00][sql] SELECT * FROM `store_comment` WHERE  `store_id` = 6 [ RunTime:0.007388s ]
+[2022-04-18T21:36:39+08:00][sql] CONNECT:[ UseTime:0.009421s ] mysql:host=kaopu-campus.online;port=3306;dbname=campusserver;charset=utf8
+[2022-04-18T21:36:39+08:00][sql] SHOW FULL COLUMNS FROM `store_comment` [ RunTime:0.003324s ]
+[2022-04-18T21:36:39+08:00][sql] SELECT * FROM `store_comment` WHERE  `store_id` = 8 [ RunTime:0.001495s ]
+[2022-04-18T21:36:48+08:00][sql] CONNECT:[ UseTime:0.004572s ] mysql:host=kaopu-campus.online;port=3306;dbname=campusserver;charset=utf8
+[2022-04-18T21:36:48+08:00][sql] SHOW FULL COLUMNS FROM `store_comment` [ RunTime:0.003106s ]
+[2022-04-18T21:36:48+08:00][sql] SELECT * FROM `store_comment` WHERE  `store_id` = 7 [ RunTime:0.004523s ]
+[2022-04-18T21:46:06+08:00][sql] CONNECT:[ UseTime:0.005605s ] mysql:host=kaopu-campus.online;port=3306;dbname=campusserver;charset=utf8
+[2022-04-18T21:46:06+08:00][sql] SHOW FULL COLUMNS FROM `store_comment` [ RunTime:0.003001s ]
+[2022-04-18T21:46:06+08:00][sql] SELECT * FROM `store_comment` WHERE  `store_id` = 1 [ RunTime:0.001954s ]
+[2022-04-18T21:50:09+08:00][sql] CONNECT:[ UseTime:0.009981s ] mysql:host=kaopu-campus.online;port=3306;dbname=campusserver;charset=utf8
+[2022-04-18T21:50:09+08:00][sql] SHOW FULL COLUMNS FROM `store_comment` [ RunTime:0.003741s ]
+[2022-04-18T21:50:09+08:00][sql] SELECT * FROM `store_comment` WHERE  `store_id` = 9 [ RunTime:0.003955s ]
