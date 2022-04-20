@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<script src="js/iconfont_Zhang.js"></script>
+
+		<style type="text/css">
+			.fbpyq-div {
+				background: #fff
+			}
+
+			.fbpyq-div textarea {
+				border: 0px;
+				padding: 10px;
+				min-height: 470px;
+
+			}
+
+			.icon {
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+			}
+
+			.top-color {
+				background-color: #000039;
+			}
+
+			.top-color a,
+			.top-color h1 {
+				color: #fff;
+			}
+
+			.bottom-color {
+				background-color: #000039;
+
+			}
+
+			/* 		#galleryImg{
+                    margin-bottom: 15px;
+                    overflow: hidden;
+                    padding-top: 10px;
+                    position: relative;
+                    top: -10px;
+                } */
+
+			.img_div {
+				margin-top: 7px;
+				width: 70px;
+				height: 70px;
+				position: relative;
+				margin-right: 7px;
+				float: left;
+			}
+
+			.img_div img {
+				width: 70px;
+				height: 70px;
+			}
+
+			.img_div span {
+				width: 12px;
+				height: 12px;
+				line-height: 12px;
+				text-align: center;
+				background: red;
+				border-radius: 50%;
+				color: #fff;
+				display: block;
+				position: absolute;
+				top: -5px;
+				right: -5px;
+				z-index: 9999px;
+				font-size: 13px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 头部 -->
+		<header class="mui-bar mui-bar-nav top-color">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">Post</h1>
+			<button class="mui-btn mui-pull-right public-btn" id="btn_send">Send</button>
+		</header>
+		<!-- 中间内容 -->
+		<div class="mui-content">
+			<div class="fbpyq-div public-padding ">
+				<form action="javascript:;">
+					<textarea id="block_cont" placeholder="Please enter the content message"></textarea>
+				</form>
+			</div>
+			<!-- 已添加的图片 -->
+			<div id="galleryImg">
+				<!-- 				<div class="img_div">
+                            <span class="del">×</span>
+                            <img src="image/1.jpg" >
+                        </div> -->
+			</div>
+		</div>
+
+		<!-- 底部 -->
+		<nav class="mui-bar mui-bar-tab bottom-color">
+
+			<a class="mui-tab-item mui-active" id="gallery">
+				<span class="mui-icon">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-tupian"></use>
+					</svg>
+				</span>
+				<span class="mui-tab-label">Photo</span>
+			</a>
+
+			<a class="mui-tab-item mui-active">
+				<span class="mui-icon">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-huati"></use>
+					</svg>
+				</span>
+				<span class="mui-tab-label">Topic</span>
+			</a>
+
+			<a class="mui-tab-item mui-active" id="location">
+				<span class="mui-icon">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-dingwei"></use>
+					</svg>
+				</span>
+				<span class="mui-tab-label">Location</span>
+			</a>
+		</nav>
+
+
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+
+
+			
+
+			mui.plusReady(function() {
+				var imgArray = [];
+				//获取输入框中输入的内容 btn_send是发送键的ID block_cont是内容框的ID
+				document.getElementById("btn_send").addEventListener('tap', function() {
+				var content = document.getElementById('block_cont').value;
+					// alert(content);
+					// if(content == ''){
+					// 	alert('Please input content');
+					// 	return;
+					// }
+					uploadimg();
+
+				});
+
+
+
+				//获取相册里的图片
+				// var gallery = document.getElementById("gallery");
+				// gallery.addEventListener("tap",function(){
+				// 	plus.gallery.pick(function(path){
+				// 		var img = document.createElement('img');
+				// 		img.src = path;
+				// 		img.width = 100;
+				// 		img.height = 100;
+
+				// 		mui("#galleryImg")[0].appendChild(img);
+				// 	})
+				// })
+				var galleryImg = document.getElementById('galleryImg');
+				add_img_event();
+
+				function add_img_event() {
+
+					var img_ele = mui.className('img_ele');
+
+					//while(img_ele.length <=4 ){
+					var gallery = document.getElementById("gallery");
+					gallery.addEventListener("tap", function() {
+						 
+						plus.gallery.pick(function(path) {
+							// var img = document.createElement('img');
+							// img.src = path;
+							// img.width = 100;
+							// img.height = 100;
+
+							// mui("#galleryImg")[0].appendChild(img);
+
+							// var img_url = 'http://kaopu-campus.online' + img.src;
+
+							// isUpload:true,
+							// uploadUrl:'http://kaopu-campus.online/upload_post.php'
+							img_url = path;
+							var tmpl = '<div class="img_div">' +
+								'	<span class="del">×</span>' +
+								'	<img class="img_ele" src="' + path + '"/>' +
+								'</div>';
+							var now_pic = galleryImg.innerHTML;
+							galleryImg.innerHTML = tmpl + now_pic;
+							//console.log(tmpl + now_pic);
+
+							var imageBase;
+							//********************** 这里对图片格式进行编码*********************
+							var picturerul;
+							picturerul = plus.io.convertLocalFileSystemURL(path);
+							console.log('picturerul' + picturerul)
+							plus.io.resolveLocalFileSystemURL(picturerul, function(entry) {
+
+								entry.file(function(file) {
+
+										reader = new plus.io.FileReader();
+										reader.onloadend = function(e) {
+
+											//console.log("最新！未剪切的值的值为：" + JSON.stringify(e.target.result)); //未剪切包含有头部
+											imageBase = e.target.result.replace(
+												"data:image/jpeg;base64,", ""
+												); //变成真正可以使用的编码
+											//e.target.result;//base64字符串 
+											//console.log("最新！剪切的值的值为：" + imageBase);
+											imgArray.push(imageBase);
+										};
+										reader.readAsDataURL(file);
+									},
+									function(e) {
+
+										alert(e.message);
+									});
+							}, function() {
+
+								console.log(1);
+							});
+
+							//console.log(imageBase)
+
+
+							// var data = getBase64Image(now_pic);
+
+							// var newImgbase = data.split(",")[1];  //通过逗号分割到新的编码
+							// imgArray.push(newImgbase);
+							// alert(galleryImg.innerHTML);
+							//add_img_event();
+							// img_list
+						})
+					})
+					//}
+				}
+
+				function check_img_number() {
+
+				}
+
+
+
+				// var galleryImg = document.getElementById('gallery');
+
+				// //点击添加图片
+				// galleryImg.addEventListener('tap', function(){
+
+				//     //打开相册
+				//     plus.gallery.pick(function(path){
+				//             galleryImg.src = path; //设置img的路径
+				// 				var img = document.createElement('img');
+				// 				img.src = path;
+				// 				img.width = 100;
+				// 				img.height = 100;
+
+				// 				mui("#galleryImg")[0].appendChild(img);
+				//             //把图片base64编码  注意：这里必须在onload事件里执行！
+				//             galleryImg.onload = function() {
+				//                 var data = getBase64Image(galleryImg);    //base64编码
+				//                 var newImgbase = data.split(",")[1];  //通过逗号分割到新的编码
+				//                 imgArray.push(newImgbase);            //放到imgArray数组里面
+				//                 gallery.off('load');                   //关闭加载
+				//                 }
+				//             },
+				//             function(e) {
+				//                 mui.toast('取消选择');
+				//                 });
+
+				//             });
+
+				//base64编码
+				function getBase64Image(img) {
+					var canvas = document.createElement("canvas"); //创建canvas DOM元素，并设置其宽高和图片一样
+					canvas.width = img.width;
+					canvas.height = img.height;
+					var ctx = canvas.getContext("2d");
+					ctx.drawImage(img, 0, 0, img.width, img.height); //使用画布画图
+					var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase(); //动态截取图片的格式
+					var dataURL = canvas.toDataURL("image/" + ext); //返回的是一串Base64编码的URL并指定格式
+					return dataURL;
+				}
+
+
+				function uploadimg() {
+
+					//这里就可以把添加过图片的imgArray通过JSON解析成字符串，然后上传给服务器呜呜呜呜呜不知道看看
+					//var imgJson = JSON.stringify(imgArray);
+					var content = document.getElementById('block_cont').value;
+					console.log(imgArray.length);
+					//console.log(imgJson)
+					//imgArray = ['122', '12312']
+					var post_data={
+							article: content,
+							pic: imgArray,
+						};
+					console.log(JSON.stringify(post_data))
+
+					mui.ajax("http://kaopu-campus.online/kaopuUI/php/savedata.php", {
+						data: post_data,
+						type: 'post',
+						timeout: 100000,
+						dataType: 'json',
+						success: function(data) {
+							console.log(JSON.stringify(data))
+							 
+							if(data.errcode == 0) {
+							    mui.toast('上传成功');
+							} else {
+							    mui.toast('上传失败:'+data.msg);
+							}
+						},
+						error: function(xhr, type, errorThrown) {
+							console.log(xhr)
+							console.log(type)
+							console.log(errorThrown)
+							mui.toast('错误');
+						}
+					});
+				}
+
+
+
+				//获取地理位置试一下
+				var location = document.getElementById("location");
+				document.addEventListener('plusready', onPlusReady, false);
+
+				function onPlusReady() {
+					plus.geolocation.getCurrentPosition(function(p) {
+						alert('Geolocation\nLatitude:' + p.coords.latitude + '\nLongitude:' + p.coords
+							.longitude + '\nAltitude:' + p.coords.altitude);
+					}, function(e) {
+						alert('Geolocation error: ' + e.message);
+					});
+				}
+
+
+
+			});
+		</script>
+	</body>
+
+</html>

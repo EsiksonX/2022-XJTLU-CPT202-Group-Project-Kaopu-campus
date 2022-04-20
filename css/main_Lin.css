@@ -1,0 +1,52 @@
+.mui-bar-nav{
+	background-color: #000039;
+}
+.mui-collapse{
+	background-color: #000039;
+	
+	color: white;
+}
+#shop{
+	margin-top: 10px;
+	margin-bottom: 0.625rem;
+}
+.mui-icon-left-nav{
+	color: white;
+}
+
+#part{
+	background-color: white;
+
+}
+#diamonds{
+
+	background-color: #0062CC;
+}
+#evaluate{
+	font-size:1.5625rem;
+}
+
+#content img{
+	width:84px;
+	height: 30px;
+}
+
+p{
+	overflow: hidden;
+	text-overflow: ellipsis; /* 超出显示为省略号 */
+	display: -webkit-box;   /* 将元素作为弹性伸缩盒子模型显示 */
+	-webkit-line-clamp: 4;  /* 用来限制在一个块元素显示的文本的行数 */
+	-webkit-box-orient: vertical;   /* 设置或检索伸缩盒对象的子元素的排列方式 */
+}
+ .btn{
+        text-align: right;
+    }
+    a{
+        text-decoration: none;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    a.put{
+        display: none;
+    }

@@ -1,0 +1,18 @@
+.public-margin-top{
+	margin-top: 15px;
+}
+
+.mui-input-row input::-webkit-input-placeholder{
+	color: #000039;
+}
+
+.login-block{
+	height: 40px;
+	width: 95%;
+}
+
+.forget-password{
+	color: #61a0ff;
+	position: relative;
+	top: -15px;
+}

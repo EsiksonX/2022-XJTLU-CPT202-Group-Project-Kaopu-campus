@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>dongtai_detail</title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/dt_detail.css" rel="stylesheet" />
+		<script src="js/iconfont.js"></script>
+		<script src="js/new_file.js"></script>
+	</head>
+
+	<body>
+		<body>
+			<!-- header -->
+
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<ul class="mui-table-view mui-pull-right ">
+					<li class="mui-table-view-cell mui-collapse">
+						<a class="mui-navigate-right" href="#">More</a>
+						<div class="mui-collapse-content">
+							<p>Share</p>
+						</div>
+						<div class="mui-collapse-content">
+							<p>Report</p>
+						</div>
+					</li>
+				</ul>
+			</header>
+			<div class="mui-content box-shadow">
+				<div class="home-div">
+					<div class="home-div-top">
+						<div class="home-div-top-l">
+							<img src="./img/avatar.png" alt="">
+						</div>
+						<div class="name">Name</div>
+						<button onclick="myfun()" type="button" class="mui-btn mui-btn-danger mui-btn-outlined"
+							id="btn">Follow</button>
+						<script>
+							function myfun() {
+								var obj = document.getElementById('btn')
+								obj.innerHTML = 'Followed'
+							}
+						</script>
+					</div>
+				</div>
+			</div>
+			<!--主体-->
+			<div class="mui-content">
+				<!--图-->
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="img/wencui.jpg" width="100%">
+							</a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="img/wenxing.jpg">
+							</a>
+						</div>
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="img/wenhui.jpg">
+							</a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="img/wencui.jpg">
+							</a>
+						</div>
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="img/wencui.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+					</div>
+				</div>
+				<!--文案-->
+				<div class="time" style="font-size:2px;";>2022/3/28 15:33</div>
+				<font size="3">Problem Statement: Some students in XJTLU who are not familiar with the school and the
+					surrounding often have question such as "where can i print document ", "how can i reapply for a
+					student ID", "what is delicious near the school" and so on. This web APP, Puxiaobang, will solve
+					these questions.
+				</font>
+			</div>
+			<!--评论区-->
+			<div id="part">
+				<div>
+					<span id="diamonds">&nbsp&nbsp;</span>
+					<p></p>
+					<ul id="content" class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+							<img class="mui-media-object mui-pull-left" src="img/avatar.png">
+							<div class="mui-media-body">
+								id
+								<p>comment</p>
+							</div>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<img class="mui-media-object mui-pull-left" src="img/avatar.png">
+							<div class="mui-media-body">
+								id
+								<p>comment</p>
+							</div>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<img class="mui-media-object mui-pull-left" src="img/avatar.png">
+							<div class="mui-media-body">
+								id
+								<p>comment</p>
+							</div>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<img class="mui-media-object mui-pull-left" src="img/avatar.png">
+							<div class="mui-media-body">
+								id
+								<p>comment</p>
+							</div>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<img class="mui-media-object mui-pull-left" src="img/avatar.png">
+							<div class="mui-media-body">
+								id
+								<p>comment</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--评论点赞-->
+			<nav class="mui-bar mui-bar-tab">
+				<aside>
+					<a class="mui-tab-item mui-active commentinput">
+						<div class="fbpyq-div public-padding">
+							<textarea placeholder="Please enter a comment" style="width: 90%;"></textarea>
+							<!--内嵌css
+										<span class="mui-icon mui-icon-plusempty"></span>
+										-->
+						</div>
+					</a>
+					<a class="mui-tab-item mui-active zan-container">
+						<span class="mui-icon">
+							<svg class="icon" aria-hidden="true" style="transform:translateY(10%);">
+								<img class="zan-image" src="img/dianzan.svg">
+							</svg>
+						</span>
+					</a>
+				</aside>
+			</nav>
+
+
+
+			<script src="js/mui.js"></script>
+			<script type="text/javascript">
+				mui.init()
+			</script>
+		</body>
+
+</html>

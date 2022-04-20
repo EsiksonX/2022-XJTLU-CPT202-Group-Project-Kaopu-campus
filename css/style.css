@@ -1,0 +1,56 @@
+input::-ms-input-placeholder{
+	text-align: center;
+}
+input::-webkit-input-placeholder{
+	text-align: center;
+}
+.place_style {
+	color: #c8c8c8;
+	background-image: url(http://qiniuy.tzle1.com/2019-09-30_5d915e60a9081.png);
+	background-repeat: no-repeat;
+	background-size: 30rpx;
+	background-position: 30% center;
+}
+.hidden{ display: none;}
+body{ margin: 0; padding: 0; background-color: #F7F7F7;}
+.top{ margin: 0; padding: 0; width: 100%; background: #000039; box-shadow: 0 0;}
+.top-container{ width: 98%; margin: 0 auto;}
+.search{ width: 90%; margin: 0 auto; padding: 1vh 0; position: relative;}
+.search input{ width: 98%; height: 3vh; border-color: #DDD; box-shadow: 0; -webkit-appearance:none; border-radius: 5px;}
+.search .icon{ position: absolute; left: 36%; top: 10px; width: 20px; height: 20px; z-index: 1; }
+.search .icon img{ width: 100%;}
+.content{ margin: 0; padding: 0; width: 100%; background-color: #F7F7F7;}
+.content-container{ width: 98%; margin: 0 auto;}
+.guanzhu{ width: 50%; margin: 0 auto; display: flex;}
+.guanzhu .gz{ width: 45%; text-align: center;}
+.guanzhu .sx{ width: 9%; text-align: center;}
+.guanzhu .tj{ width: 45%; text-align: center;}
+.items{ width: 100%; display: flex; flex-flow: wrap; margin: 0 auto;}
+/*.items .item{ width: 48%; margin: 1%;}*/
+/*.item-top{ width: 100%;}*/
+/*.item-top img{ width: 100%;}*/
+/*.item-cc{ width: 100%;}*/
+/*.item-cc .title{ color: black; font-size: 1.1em; margin: 5px 0; color: #8F8F94;}*/
+/*.item-cc .info{ width: 100%; display: flex;}*/
+/*.item-cc .info .avatar{ width: 10%; }*/
+.item-cc .info .avatar img{ width: 100%; border-radius: 50% 50% 50% 50%; }
+/*.item-cc .info .name{ width: 60%; font-size: 0.9em; color: #8F8F94; }*/
+.item-cc .info .love{ width: 10%; }
+.item-cc .info .love img{ width: 80%;}
+.item-cc .info .count{ width: 10%; font-size: 0.9em; }
+.bottom{ margin: 0; padding: 0; width: 100%; background-color: #01003a; display: flex;}
+.bottom img{ width: 94%; margin:1% 3%; text-align: center;}
+.bottom .bottom-contaier{ width: 100%; display: flex; padding-top: 10px;}
+.bottom .bottom-contaier .item{ width: 20%; text-align: center; color: #8F8F94; font-size: 1.2em; height: 7vh; line-height: 7vh;}
+.bottom .bottom-contaier .item.active{ color: #6F00D2;}
+.bottom .bottom-contaier .item img{ width: 100%; border-radius: 20px; }
+
+.bottom .bottom-item{ width: 20%; text-align: center; }
+
+.bottom .bottom-item img{ margin: 10% auto; text-align: center; }
+
+.bottom .bottom-item .guide{ width: 50%; }
+.bottom .bottom-item .store{ width: 53%; }
+.bottom .bottom-item .fadong{ width: 50%; }
+.bottom .bottom-item .dis{ width: 67%; }
+.bottom .bottom-item .me{ width: 55%; }

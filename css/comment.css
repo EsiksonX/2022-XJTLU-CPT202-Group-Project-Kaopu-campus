@@ -1,0 +1,39 @@
+.top-color{
+			background: #000039;
+		}
+		.top-color a, .top-color h1{
+			color: #fff;
+		}
+		#first{
+			color: #000039
+		}
+		.pingfen{
+			background: #fff;
+			margin-top: 50px;
+		}
+
+		.fbpyq-div{
+			background: #fff;
+			height: 150px;
+		}
+		.fbpyq-div textarea{
+			padding:10px;
+		    min-height:100px;
+			border:0px;
+		}
+		.fbpyq-div span{
+			margin-top:-20px;
+			margin-left:10px;
+			display: block;
+			width:70px;
+			height:70px;
+			text-align: center;
+			line-height: 70px;
+			font-size:40px;
+			color:#d8d8d8;
+			border:1px solid #D8D8D8
+		}
+		.public-btn{
+			background-color: #000039;
+			color: #fff;
+		}

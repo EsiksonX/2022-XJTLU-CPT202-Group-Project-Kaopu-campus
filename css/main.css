@@ -1,0 +1,32 @@
+.mui-bar-nav{
+	background:#000039;
+}
+
+#grid{
+	background: white;
+	margin-bottom: 5px;
+}
+
+#grid .mui-media-body{
+	color:#000039;
+}
+
+.mui-slider{
+	margin-bottom: 5px;
+}
+
+#paihangbang{
+	background: white;
+}
+
+#jia{
+	font-size: 40px;
+	right:10px;
+	top:0px;
+}
+
+.content-selector {
+	position: sticky;
+	top: 1.333rem;
+	z-index: 100;
+}

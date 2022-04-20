@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src="js/Guide.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/main.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-active .mui-icon,
+			.mui-active .mui-tab-label {
+				color: #cf57c1;
+			}
+		</style>
+		<script src="js/iconfont.js"></script>
+		<style type="text/css">
+			.icon {
+				width: 1em;
+				height: 1em;
+				vertical-align: -0.15em;
+				fill: currentColor;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body onload="getData()">
+
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-input-row mui-search">
+				<input type="search" class="mui-input-clear" placeholder="Search" style="background:white;"
+					   id="myInput" oninput="inputAction()">
+			</div>
+			<div>
+				<ul id="searcher-land" style="margin-right: 10px">
+				</ul>
+			</div>
+		</header>
+
+		<div id="slider" class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- An additional node (round-robin: the first node is the last round-robin) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a onclick="creatwebview('http:\/\/kaopu-campus.online\/kaopuUI\/Guide_detail.html?guide_id=4')">
+						<img src="pic4.jpg" width="400" height="200">
+					</a>
+				</div>
+				<!-- The first one -->
+				<div class="mui-slider-item">
+					<a onclick="creatwebview('http:\/\/kaopu-campus.online\/kaopuUI\/Guide_detail.html?guide_id=1')">
+						<img src="pics/pic1.jpg" width="400" height="200">
+					</a>
+				</div>
+				<!-- The second -->
+				<div class="mui-slider-item">
+					<a onclick="creatwebview('http:\/\/kaopu-campus.online\/kaopuUI\/Guide_detail.html?guide_id=2')">
+						<img src="pic2.jpg" width="400" height="200">
+					</a>
+				</div>
+				<!-- The third -->
+				<div class="mui-slider-item">
+					<a onclick="creatwebview('http:\/\/kaopu-campus.online\/kaopuUI\/Guide_detail.html?guide_id=3')">
+						<img src="pic3.jpg" width="400" height="200">
+					</a>
+				</div>
+				<!-- The fourth -->
+				<div class="mui-slider-item">
+					<a onclick="creatwebview('http:\/\/kaopu-campus.online\/kaopuUI\/Guide_detail.html?guide_id=4')">
+						<img src="pic4.jpg" width="400" height="200">
+					</a>
+				</div>
+				<!-- An additional node (loop: the last node is the first wheel) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a onclick="creatwebview('http:\/\/kaopu-campus.online\/kaopuUI\/Guide_detail.html?guide_id=1')">
+						<img src="pic1.jpg" width="400" height="200">
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+
+		<div id="he-plugin-standard"></div>
+		<script>
+			WIDGET = {
+				"CONFIG": {
+					"layout": "1",
+					"width": "450",
+					"height": "150",
+					"background": "1",
+					"dataColor": "FFFFFF",
+					"language": "zh",
+					"borderRadius": "5",
+					"key": "cf83aa7b82094372a33b6ca2e6b031c8"
+				}
+			}
+		</script>
+		<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+
+		<ul id="grid" class="mui-table-view mui-grid-view mui-grid-9">
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				<a href="#">
+					<span class="mui-icon" style="color: #7694D6;">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-dituleiditu"></use>
+						</svg>
+					</span>
+					<div class="mui-media-body">Map</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				<a href="#">
+					<span class="mui-icon" style="color: #7694D6;">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-icon"></use>
+						</svg>
+					</span>
+					<div class="mui-media-body">Food</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+				<a href="#">
+					<span class="mui-icon" style="color: #7694D6;">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-yule"></use>
+						</svg>
+					</span>
+					<div class="mui-media-body">Leisure</div>
+				</a>
+			</li>
+
+		</ul>
+
+		<div id="paihangbang">
+			<div>
+				<span style="background:#000039;">&nbsp;&nbsp;</span>
+				<span>Hot Click!</span>
+				<span class="mui-pull-right">More&nbsp;></span>
+
+			</div>
+		</div>
+
+
+
+		<!-- Strategy card-->
+		<ul class="mui-table-view" id="tutorial">
+
+		</ul>
+
+
+		<script>
+			var searchKey = '';
+			var slideObj = mui("#slider");
+			slideObj.slider({
+				interval: 2000
+			})
+
+			function inputAction(){
+				var List = $('#searcher-land');
+				var x = $('#myInput').val();
+				if (x.length == 0) {
+					List.html('');
+				}
+				$.ajax({
+					type: "POST",
+					url: "http://kaopu-campus.online/kaopuUI/php/Search_Guide.php",
+					contentType: "application/x-www-form-urlencoded",
+					data: {"name":x},
+					dataType:"json",
+					success: function (data) {
+						var html = '';
+						List.html('');
+						if(data.length > 0) {
+							$.each(data, function(index, value) {
+								goodName = value['id'];
+								shopName = value['title'];
+								//Determine the type of name
+								itemName = (goodName) ? goodName : shopName;
+								html += '<li class="goods-list" style="margin-left: 8%; height: 150%; margin-top: 6px; margin-bottom: 5px; font-size: 15px;">' + shopName + '</li>'
+							});
+							List.css('background-color','#ffffff');
+							List.css('border','1.5px solid #494949');
+							List.css('border-radius','5px 5px 5px 5px');
+							List.css('display','block');
+							List.css('height','200%');
+							List.css('margin','0 auto');
+							List.html(html);
+						}else {
+							List.html('');
+						}
+					},
+					async: false
+				});
+			}
+
+			$("ul#searcher-land").on("click","li",function(){
+				searchKey = $(this).text();
+				let this_id;
+				for (let i = 0; i < obj.length; i++){
+					if (obj[i].storeName == searchKey) {
+						this_id = obj[i].storeID;
+						break;
+					}
+				}
+				window.location.href = `http://kaopu-campus.online/KaopuUI/Guide_detail.html?guide_id=${this_id}`;
+			})
+
+		</script>
+		<script>
+			let guide;
+			let size;
+			let index = 0;
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+/* header */
+
+.mui-action-back{
+	color: #F7F7F7;
+	
+}
+.mui-navigate-right::after{
+    color: transparent;
+}
+
+
+.mui-bar-nav{
+	background-color: #000039;
+	
+}
+.mui-collapse{
+	background-color: #000039;
+	color: white;
+}
+
+/* body */
+.mui-content{
+	background-color: #F7F7F7;
+	
+}
+.title{
+	margin: 15px 15px
+	
+}
+.time{
+	margin: 5px 15px;
+}
+    
+.strategy-comtent{
+    border-top: solid 0.5px #000039; margin: 15px 15px; padding: 10px 10px;
+	color: #3C3C3C;
+	font-size: 16px;
+    line-height: 22px;
+}
+.picture{
+			width: 90%;
+			border-radius: 10px;
+			margin: 15px;
+			align: center
+		}

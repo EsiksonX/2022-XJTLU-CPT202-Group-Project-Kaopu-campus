@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet"/>
+		<link href="css/daohanglan.css" rel="stylesheet"/>
+		<link href="iconfont.css" rel="stylesheet"/>
+		<script src="js/iconfont.js"></script>
+		<style type="text/css">
+			.icon {
+				width: 1em;
+				height: 1em;
+				/* vertical-align: -0.15em; */
+				fill: currentColor;
+				overflow: hidden;
+				margin-left: -5%;
+			}
+		</style>
+		<style type="text/css">
+		.ziti{
+			font-size: 30px;
+		}
+		/* .foot_icon{
+			margin-left: -45px;
+		}
+		#jia{
+			margin-left:-38px;
+		} */
+		.mui-tab-label{
+			font-size: 20px;
+		}
+		.mui-active .mui-icon,.mui-active .mui-tab-label{
+			color:#cf57c1;
+		}
+		</style>
+	</head>
+	<body>
+		
+		<nav id="daohanglan" class="mui-bar mui-bar-tab" style="background:#000039;">
+			<a class="mui-tab-item mui-active" href="Guide.html">
+				<span class="mui-icon foot_icon">
+				<svg class="icon" aria-hidden="true">
+				<use xlink:href="#icon-daohang"></use>
+				</svg>
+				</span>
+				<span class="mui-tab-label ziti">Guide</span>
+			</a>
+			<a class="mui-tab-item" href="Store.html">
+				<span class="mui-icon foot_icon">
+				<svg class="icon" aria-hidden="true">
+				<use xlink:href="#icon-shouye1"></use>
+				</svg>
+				</span>
+				<span class="mui-tab-label ziti">Store</span>
+			</a>
+			<a class="mui-tab-item" href="fadongtai.html">
+				<span class="mui-icon" id="jia">
+					<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-jia1"></use>
+					</svg>
+				</span>
+			</a>
+			<a class="mui-tab-item" href="Discover.html">
+				<span class="mui-icon foot_icon">
+				<svg class="icon" aria-hidden="true">
+				<use xlink:href="#icon-faxian"></use>
+				</svg>
+				</span>
+				<span class="mui-tab-label ziti">Discover</span>
+			</a>
+			<a class="mui-tab-item" href="Me.html">
+				<span class="mui-icon foot_icon">
+				<svg class="icon" aria-hidden="true">
+				<use xlink:href="#icon-shouye"></use>
+				</svg>
+				</span>
+				<span class="mui-tab-label ziti">Me</span>
+			</a>
+		</nav>
+		
+		
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function () {
+				var pages = ["Guide.html", "Store.html", "fadongtai.html", "Discover.html", "Me.html"];
+				var curruntwindow = plus.webview.currentWebview();
+				var pagestyle = {
+					top:"0px",
+					bottom:"100px"
+				}
+				for (var i = 0; i <= pages.length; i++){
+					var item = plus.webview.create(pages[i],pages[i],pagestyle);
+					curruntwindow.append(item);
+				}
+				plus.webview.show(pages[0]);
+				mui(".mui-bar-tab").on("tap","a",function(){
+					var href = this.getAttribute("href");
+					plus.webview.show(href);
+				});
+			});
+
+			    
+			
+		</script>
+	</body>
+</html>
