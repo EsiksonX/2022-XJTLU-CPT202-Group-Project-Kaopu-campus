@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+    <meta charset="utf-8" lang="en-UK">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+	<script src="js/filter.js"></script>
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/dropload.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+	<link href="css/iconfont.css" rel="stylesheet"/>
+	<link href="css/store.css" rel="stylesheet"/>
+	<link href="css/dropload.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	<script src="js/iconfont.js"></script>
+	<style>
+		*{margin: 0; padding: 0;}
+
+	</style>
+	<style>
+	.mui-active,.mui-active{
+		color:#cf57c1;
+	}
+	</style>
+	
+	
+</head>
+<body onload="getData()">
+	<header class="mui-bar mui-bar-nav" style="background:#000039;">
+		<div class="mui-input-row mui-search">
+			<input type="search" class="mui-input-clear" placeholder="Search" style="background:white;"
+				   id="myInput" oninput="inputAction()">
+		</div>
+		<div>
+			<ul id="searcher-land" style="margin-right: 10px">
+			</ul>
+		</div>
+	</header>
+	
+	<div class="mui-content">
+		<div id="slider" class="mui-slider" >
+		  <div class="mui-slider-group mui-slider-loop">
+<!--			 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+			  <div class="mui-slider-item">
+				  <a onclick='creatwebview("http:\/\/kaopu-campus.online\/KaopuUI\/Store_detail.html?store_id=8")'>
+					  <img src="http://kaopu-campus.online/KaopuUI/image/store/8/scroll.jpg">
+				  </a>
+			  </div>
+			<!-- 第一张 -->
+			<div class="mui-slider-item">
+			  <a onclick='creatwebview("http:\/\/kaopu-campus.online\/KaopuUI\/Store_detail.html?store_id=1")'>
+				<img src="http://kaopu-campus.online/KaopuUI/image/store/1/scroll.jpg">
+			  </a>
+			</div>
+			<!-- 第二张 -->
+			  <div class="mui-slider-item">
+				  <a onclick='creatwebview("http:\/\/kaopu-campus.online\/KaopuUI\/Store_detail.html?store_id=6")'>
+					  <img src="http://kaopu-campus.online/KaopuUI/image/store/6/scroll.jpg">
+				  </a>
+			  </div>
+			<!-- 第三张 -->
+			  <div class="mui-slider-item">
+				  <a onclick='creatwebview("http:\/\/kaopu-campus.online\/KaopuUI\/Store_detail.html?store_id=7")'>
+					  <img src="http://kaopu-campus.online/KaopuUI/image/store/7/scroll.jpg">
+				  </a>
+			  </div>
+			<!-- 第四张 -->
+			  <div class="mui-slider-item">
+				  <a onclick='creatwebview("http:\/\/kaopu-campus.online\/KaopuUI\/Store_detail.html?store_id=8")'>
+					  <img src="http://kaopu-campus.online/KaopuUI/image/store/8/scroll.jpg">
+				  </a>
+			  </div>
+			<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+			<div class="mui-slider-item mui-slider-item-duplicate">
+				<a onclick='creatwebview("http:\/\/kaopu-campus.online\/KaopuUI\/Store_detail.html?store_id=1")'>
+					<img src="http://kaopu-campus.online/KaopuUI/image/store/1/scroll.jpg">
+				</a>
+			</div>
+		  </div>
+		  <div class="mui-slider-indicator">
+			<div class="mui-indicator mui-active"></div>
+			<div class="mui-indicator"></div>
+			<div class="mui-indicator"></div>
+			<div class="mui-indicator"></div>
+		  </div>
+		</div>
+	</div>
+	<!-- 推荐商家-->
+	<div id="shoplist-title" class="shoplist-title" style="font-size: 16px;">Recommended Restaurant</div>
+	<!-- 筛选器--> 
+	<div class="home-filter">
+		<aside class="filter" style="top:0px;">
+			<div class="filter-header">
+				<a class="filter-nav" id="sorter" herf="javascript:" onclick="sorterClick()">
+					<span id="sortName" style="font-size:13px;">Comprehensive Sorting</span>
+					<svg viewBox="0 0 72 32" class="dropdown-icon">
+						<path d="M36 32l36-32h-72z"></path>
+					</svg>
+				</a>
+				<a class="filter-nav-more" id="filter" herf="javascript:" onclick="filterClick()">
+					<span style="font-size:13px;">Filter</span>
+					<svg class="filter-icon" >
+						<img src="image/svg/filter.svg"/>
+					</svg>
+				</a>
+			</div>
+			<!-- 选择排序方式-->
+			<section id="sortList" class="filter-extend filter-sort">
+				<ul>
+					<li id="sort1" onclick="sort1()" class="active" >
+						<span style="font-size:13px;">Comprehensive Sorting</span>
+						<img src="image/svg/check.svg" class="selected">
+					</li>
+					<li id="sort2" onclick="sort2()">
+						<span style="font-size:13px;">Closest</span>
+						<img src="image/svg/check.svg" class="selected">
+					</li>
+					<li id="sort3" onclick="sort3()">
+						<span style="font-size:13px;">Highest Rated</span>
+						<img src="image/svg/check.svg" class="selected">
+					</li>
+					<li id="sort4" onclick="sort4()">
+						<span style="font-size:13px;">Lowest Price</span>
+						<img src="image/svg/check.svg" class="selected">
+					</li>
+					<li id="sort5" onclick="sort5()">
+						<span style="font-size:13px;">Highest Price</span>
+						<img src="image/svg/check.svg" class="selected">
+					</li>
+				</ul>
+			</section>
+			<!-- 筛选器-->
+			<section id="filterList" class="filter-extend">
+				<div class="morefilter">
+					<dl>
+						<dt style="font-size:9px; color:grey;">Category (Multiple Choice)</dt>
+						<dd>
+							<div class="morefilter-block" id="fastfood" onclick="fastfood()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/fastfood.svg">
+									<span>Fast Food</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="drinks" onclick="drinks()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/drink.svg">
+									<span>Drinks</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="cake" onclick="cake()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/cake.svg">
+									<span>Cake & Bread</span>
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<div class="morefilter-block" id="rice" onclick="rice()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/rice.svg">
+									<span>Rice</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="noodles" onclick="noodles()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/noodles.svg">
+									<span>Noodles</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="barbeque" onclick="barbeque()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/barbecue.svg">
+									<span>Barbeque</span>
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<div class="morefilter-block" id="hotpot" onclick="hotpot()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/hotpot.svg">
+									<span>Hot Pot</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="spicyboiled" onclick="spicyboiled()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/SpicyBoliedFood.svg">
+									<span>Spicy Bolied</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="dumplings" onclick="dumplings()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/dumplings.svg">
+									<span>Dumplings</span>
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<div class="morefilter-block" id="baozi" onclick="baozi()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/baozi.svg">
+									<span>Baozi</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="breakfest" onclick="breakfest()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/breakfest.svg">
+									<span>Breakfest</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="westernfood" onclick="westernfood()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/westernfood.svg">
+									<span>Western Food</span>
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<div class="morefilter-block" id="italianfood" onclick="italianfood()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/italianfood.svg">
+									<span>Italian Food</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="japenesefood" onclick="japenesefood()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/japenesefood.svg">
+									<span>Japenese Food</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="cvs" onclick="cvs()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/CVS.svg">
+									<span>CVS</span>
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<div class="morefilter-block" id="fruit" onclick="fruit()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/fruit.svg">
+									<span>Fruit</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="stationery" onclick="stationery()">
+								<div class="morefilter-index">
+									<img class="morefilter-image" src="image/category/Stationery.svg">
+									<span>Stationery</span>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					<dl>
+						<dt style="font-size:9px; color:grey;">Price Per Capita</dt>
+						<dd>
+							<div class="morefilter-block" id="under20" onclick="under20()">
+								<div class="morefilter-index">
+									<span>Under ¥20</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="20-50" onclick="under50()">
+								<div class="morefilter-index">
+									<span>¥20 - ¥50</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="50-70" onclick="under70()">
+								<div class="morefilter-index">
+									<span>¥50 - ¥70</span>
+								</div>
+							</div>
+						</dd>
+						<dd>
+							<div class="morefilter-block" id="70-100" onclick="under100()">
+								<div class="morefilter-index">
+									<span>¥70 - ¥100</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="100-150" onclick="under150()">
+								<div class="morefilter-index">
+									<span>¥100 - ¥150</span>
+								</div>
+							</div>
+							<div class="morefilter-block" id="over150" onclick="over150()">
+								<div class="morefilter-index">
+									<span>Over ¥150</span>
+								</div>
+							</div>
+						</dd>
+					</dl>
+				</div>
+				
+			</section>
+		</aside>
+	</div>
+	<!-- 店铺卡片-->
+	<section class="shoplist" id="home">
+
+	</section>
+	
+	<script>
+		var searchKey = '';
+		var obj;
+		var slideObj = mui("#slider");
+		slideObj.slider({
+			interval: 2000
+		})
+
+		function inputAction(){
+
+			var List = $('#searcher-land');
+			var x = $('#myInput').val();
+			if (x.length == 0) {
+				List.html('');
+			}
+			$.ajax({
+				type: "POST",
+				url: "http://kaopu-campus.online/kaopuUI/php/Search.php",
+				contentType: "application/x-www-form-urlencoded",
+				data: {"name":x},
+				dataType:"json",
+				success: function (data) {
+					obj = data;
+					var html = '';
+					List.html('');
+					if(data.length > 0) {
+						$.each(data, function(index, value) {
+							goodName = value['storeID'];
+							shopName = value['storeName'];
+							//判断Name类型
+							itemName = (goodName) ? goodName : shopName;
+							html += '<li class="goods-list" style="margin-left: 8%; height: 150%; margin-top: 6px; margin-bottom: 5px; font-size: 15px;">' + shopName + '</li>'
+							if (index + 1 != data.length) html += `<hr>`;
+
+						});
+						List.css('background-color','#ffffff');
+						List.css('border','1.5px solid #494949');
+						List.css('border-radius','5px 5px 5px 5px');
+						List.css('display','block');
+						List.css('height','200%');
+						List.css('margin','0 auto');
+						List.html(html);
+					}else {
+						List.html('');
+					}
+				},
+				async: false
+			});
+		}
+
+		$("ul#searcher-land").on("click","li",function(){
+			searchKey = $(this).text();
+			let this_id;
+			for (let i = 0; i < obj.length; i++){
+				if (obj[i].storeName == searchKey) {
+					this_id = obj[i].storeID;
+					break;
+				}
+			}
+			creatwebview(`http://kaopu-campus.online/KaopuUI/Store_detail.html?store_id=${this_id}`);
+		});
+	</script>
+
+	<!--下拉刷新-->
+	<script>
+		let store_info;
+		let size;
+		let index = 0;
+		//当窗口打开时，向php发送一次数据，并获取查询结果
+		function getData(){
+			index = 0;
+			$("#home").html("");
+			$.ajax({
+				type: "POST",
+				url: "http://kaopu-campus.online/kaopuUI/php/Store.php",
+				data: `sort=${sort_type}&category=${category_list}&price=${price_list}&lont=${longitude}&lat=${latitude}&searchKey=${searchKey}`,
+				success: function (data) {
+					try {
+					store_info = jQuery.parseJSON(data);
+					size = store_info.length;
+					console.log(store_info);
+					} catch (err){
+						$("#home").html(`<div style="font-size: 30px; line-height: 200px; text-align:center; height: inherit; background-color: #fff; color: #c0c0c0">No Data</div>`);
+						return;
+					}
+				},
+				async: false
+			});
+			//将结果发送到html中
+			$("#home").html(StoreContainer(size));
+			index++;
+		}
+	</script>
+</body>
+</html>

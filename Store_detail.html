@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/main_Lin.css" rel="stylesheet" />
+		<link href="css/store.css" rel="stylesheet" />
+		<script src="js/Store_detail.js" type="text/javascript" charSet="UTF-8"></script>
+		<script src="js/jquery-3.6.0.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<style>
+			.newimg{ width: 100%;}
+			.newimg img{ width: 100%;}
+			.index-rateWrap{
+				transform: scale(1.4, 1.4);
+				position: relative;
+				margin-left: 8%;
+				height: 22px;
+			}
+		</style>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+	<body onload="update()">
+		<!-- 头部 -->
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<ul class="mui-table-view mui-pull-right ">
+			        <li class="mui-table-view-cell mui-collapse">
+			            <a class="mui-navigate-right" href="#">More</a>
+			            <div class="mui-collapse-content">
+							<p>Share</p>
+			            </div>
+						<div class="mui-collapse-content">
+							<p>Report</p>
+						</div>
+			        </li>
+			    </ul>
+		</header>
+		<!-- 主体 -->
+		<div class="mui-content">
+
+			<!-- 店铺图片 -->
+			<div id="slider" class="mui-slider" >
+			  <div class="mui-slider-group mui-slider-loop">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+				  <a>
+					<img id="4.1"  height="200" width="400">
+				  </a>
+				</div>
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+				  <a>
+					<img id="1" height="200" width="400">
+				  </a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+				  <a>
+					<img id="2" height="200" width="400">
+				  </a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+				  <a>
+					<img id="3" height="200" width="400">
+				  </a>
+				</div>
+				<!-- 第四张 -->
+				<div class="mui-slider-item">
+				  <a>
+					<img id="4" height="200" width="400">
+				  </a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+				  <a>
+					<img id="1.1" height="200" width="400">
+				  </a>
+				</div>
+			  </div>
+			  <div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			  </div>
+			</div>
+
+			<!-- 商铺介绍 -->
+			<ul id= "shop" class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<div id="name" class="mui-media-body">
+						<h2 id ="store_name"></h2>
+						<section class="index-line">
+							<div class="index-rateWrap">
+								<div class='rating-wrapper index-stars'>
+									<div class="rating-gray">
+										<img src="image/stars/gray.svg">
+									</div>
+									<div class="rating-actived" id="star">
+										<img src="image/stars/actived.svg">
+									</div>
+								</div>
+								<span class="index-rate" id="rate" style="font-size:8px"></span>
+							</div>
+						</section>
+						<p class="mui-ellipsis" id="price"></p>
+						<p class="mui-ellipsis" id="bussiness_time"></p>
+						<a class="mui-ellipsis" id="navigate">Navigate to There</a>
+					</div>
+				</li>
+			</ul>
+
+			<!-- 评价 -->
+			<div id="part">
+				<div>
+					<span id ="diamonds">&nbsp&nbsp;</span>
+					<span id="evaluate">Comment</span>
+					<button onclick="toComment()" id = "button" type = "button" class="mui-btn mui-pull-right">evaluate</button>
+					<p></p>
+
+					<ul id="content" class="mui-table-view">
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		var storeId = 0;
+		if(typeof location.href.split('store_id=')[1] != 'undefined'){
+			storeId = location.href.split('store_id=')[1];
+		}
+
+		function toComment(){
+			location.href = 'comment.html?id='+storeId;
+		}
+		function ShowData(data){
+			let node = document.getElementById('content');
+			const size = data.length;
+			let html = '';
+			for(let i=0;i<size;i++){
+				const d = data[i];
+				console.log(d);
+				let imglist = '';
+				if(d.image1){
+					imglist += '<img src='+d.image1+' />';
+				}
+				if(d.image2){
+					imglist += '<img src='+d.image2+' />';
+				}
+				if(d.image3){
+					imglist += '<img src='+d.image3+' />';
+				}
+				if(d.image4){
+					imglist += '<img src='+d.image4+' />';
+				}
+				html += '<li class="mui-table-view-cell mui-media">';
+				html += '	<img class="mui-media-object mui-pull-left" src="images/avatar.png">';
+				html += '	<div class="mui-media-body">';
+				html += '		<div class="newimg"><img style="width:65%" src="images/score'+d['grading']+'.png" /></p>';
+				html += '		<p>'+d['article']+'</p>';
+				html += '		<div class="imglist">'+imglist+'</div>';
+				html += '</div></li>';
+			}
+			node.innerHTML = html;
+		}
+		mui.init();
+		let url = 'http://kaopu-campus.online/kaopuUI/think/public/StoreComment/'+storeId;
+		mui.ajax(url,{
+			dataType:'json',//服务器返回json格式数据
+			type:'get',//HTTP请求类型
+			success:function(data){
+				ShowData(data);
+			}
+		});
+
+		var slideObj = mui("#slider");
+		slideObj.slider({
+			interval: 2000
+		})
+		let store_info;
+		function getQueryVariable(variable)
+		{
+			var query = window.location.search.substring(1);
+			var vars = query.split("&");
+			for (var i=0;i<vars.length;i++) {
+				var pair = vars[i].split("=");
+				if(pair[0] == variable){return pair[1];}
+			}
+			return(false);
+		}
+
+		/**
+		 * 将小数改为百分数
+		 * @param point 小数
+		 * @return {string} 百分数
+		 */
+		function toPercent(point){
+			var str=Number(point*100).toFixed(1);
+			str+="%";
+			return str;
+		}
+
+		function update(){
+			$.ajax({
+				type: "POST",
+				url: "http://kaopu-campus.online/kaopuUI/php/Store_detail1.php",
+				data: `store_id=${getQueryVariable('store_id')}`,
+				success: function (data){
+					store_info = jQuery.parseJSON(data);
+				},
+				async: false
+			});
+
+			document.getElementById("store_name").innerText = store_info['name'];
+			document.getElementById("price").innerText = `¥${store_info['price']} per capita consumption`;
+			let begin = store_info['Begin_hour'], end = store_info['Close_hour'];
+			console.log(store_info['Close_hour']);
+			if (store_info['Begin_hour'] == null) begin="00:00";
+			if (store_info['Close_hour'] == null) end="00:00";
+			begin = begin.substring(0, 5);
+			end = end.substring(0,5);
+			document.getElementById("bussiness_time").innerText = `Open Time: ${begin}\t\t\tClose Time: ${end}`;
+			let rate_percent, a, rate;
+			if (store_info['rate'] != null) {
+				a = parseFloat(store_info['rate']);
+				rate = parseFloat(store_info['rate']).toFixed(1);
+				rate_percent = toPercent(a/5);
+			} else {
+				rate_percent = "0%";
+				rate = "no rating yet";
+			}
+			document.getElementById("star").style.width = `${rate_percent}`;
+			document.getElementById("rate").innerText = `${rate}`;
+			document.getElementById("navigate").href = `http://uri.amap.com/marker?position=${store_info['longitude']},${store_info['latitude']}`;
+			document.getElementById("1.1").src = `http://kaopu-campus.online/KaopuUI/image/store/${store_info['id']}/1.jpg`;
+			document.getElementById("1").src = `http://kaopu-campus.online/KaopuUI/image/store/${store_info['id']}/1.jpg`;
+			document.getElementById("2").src = `http://kaopu-campus.online/KaopuUI/image/store/${store_info['id']}/2.jpg`;
+			document.getElementById("3").src = `http://kaopu-campus.online/KaopuUI/image/store/${store_info['id']}/3.jpg`;
+			document.getElementById("4").src = `http://kaopu-campus.online/KaopuUI/image/store/${store_info['id']}/4.jpg`;
+			document.getElementById("4.1").src = `http://kaopu-campus.online/KaopuUI/image/store/${store_info['id']}/4.jpg`;
+		}
+		</script>
+	</body>
+</html>
